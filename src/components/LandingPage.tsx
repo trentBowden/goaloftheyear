@@ -9,7 +9,9 @@ const LandingPage = () => {
         className="landing-section women-section"
         onClick={() => navigate('/women')}
         style={{
-          backgroundImage: 'url(/images/women-background.jpg)', // You can add this image later
+          backgroundImage: 'url(/images/2025_women_hero.jpg)', 
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
         <span>Women's</span>
@@ -18,7 +20,9 @@ const LandingPage = () => {
         className="landing-section men-section"
         onClick={() => navigate('/men')}
         style={{
-          backgroundImage: 'url(/images/men-background.jpg)', // You can add this image later
+          backgroundImage: 'url(/images/2025_men_hero.jpg)', 
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
         <span>Men's</span>
