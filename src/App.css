@@ -1,42 +1,306 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Mobile-first responsive design */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Landing Page */
+.landing-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.landing-section:hover {
+  transform: scale(1.02);
+}
+
+.landing-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.landing-section span {
+  position: relative;
+  z-index: 2;
+}
+
+.women-section {
+  background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+}
+
+.men-section {
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+}
+
+/* Voting Page */
+.voting-page {
+  min-height: 100vh;
+  padding: 1rem;
+  padding-bottom: 100px; /* Space for submit button */
+}
+
+.voting-header {
   text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.goals-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.goal-card {
+  border: 3px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.goal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.goal-card.selected {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.goal-gif {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.goal-info {
+  padding: 1rem;
+}
+
+.goal-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.goal-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Submit Button */
+.submit-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  z-index: 1000;
+  transition: all 0.2s ease;
+}
+
+.submit-button:hover {
+  background: #218838;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
+}
+
+.submit-button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Management Page */
+.management-page {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: #f8f9fa;
+}
+
+.management-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.management-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.passcode-form {
+  margin-bottom: 2rem;
+}
+
+.passcode-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.management-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reset-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-women {
+  background: #ff6b9d;
+  color: white;
+}
+
+.reset-men {
+  background: #4a90e2;
+  color: white;
+}
+
+.reset-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Results Page */
+.results-page {
+  min-height: 100vh;
+  padding: 1rem;
+  background: #f8f9fa;
+}
+
+.results-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.results-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+  width: 100%;
+  height: 400px;
+  margin-top: 1rem;
+}
+
+/* Common styles */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  z-index: 100;
+}
+
+.back-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .goals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .goal-gif {
+    height: 250px;
+  }
+  
+  .landing-section {
+    font-size: 3rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 1024px) {
+  .goals-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .landing-section {
+    font-size: 3.5rem;
+  }
 }
