@@ -12,15 +12,15 @@ const sampleGoals: { [key in Category]: Goal[] } = {
   women: [
     {
       id: 'w1',
-      title: 'Sarah Mitchell',
-      subtitle: 'vs City United - Semi Final',
-      gifUrl: '/gifs/women-goal-1.gif'
+      title: 'Karina Sapio',
+      subtitle: 'vs BOSA',
+      gifUrl: '/gifs/women/2025_kor_v_bosa.gif'
     },
     {
       id: 'w2',
-      title: 'Emma Thompson',
-      subtitle: 'vs Metro Stars - Final',
-      gifUrl: '/gifs/women-goal-2.gif'
+      title: 'Hannah Roffe',
+      subtitle: 'vs Adelaide City',
+      gifUrl: '/gifs/women/2025_hannah_v_adelaide_city.gif'
     },
     {
       id: 'w3',
