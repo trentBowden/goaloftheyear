@@ -2,7 +2,7 @@ export interface Goal {
   id: string;
   title: string;
   subtitle: string;
-  gifUrl: string;
+  videoUrl: string;
 }
 
 export interface Vote {

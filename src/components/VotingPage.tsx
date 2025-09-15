@@ -14,31 +14,31 @@ const sampleGoals: { [key in Category]: Goal[] } = {
       id: 'w1',
       title: 'Karina Sapio',
       subtitle: 'vs BOSA',
-      gifUrl: '/gifs/women/2025_kor_v_bosa.gif'
+      videoUrl: '/gifs/women/2025_kor_v_bosa.webm'
     },
     {
       id: 'w2',
       title: 'Hannah Roffe',
       subtitle: 'vs Adelaide City',
-      gifUrl: '/gifs/women/2025_hannah_v_adelaide_city.gif'
+      videoUrl: '/gifs/women/2025_hannah_v_adelaide_city.webm'
     },
     {
       id: 'w3',
       title: 'Lisa Rodriguez',
       subtitle: 'vs Valley FC - Quarter Final',
-      gifUrl: '/gifs/women-goal-3.gif'
+      videoUrl: '/gifs/women-goal-3.webm'
     },
     {
       id: 'w4',
       title: 'Kate Wilson',
       subtitle: 'vs Riverside - Round 16',
-      gifUrl: '/gifs/women-goal-4.gif'
+      videoUrl: '/gifs/women-goal-4.webm'
     },
     {
       id: 'w5',
       title: 'Amy Johnson',
       subtitle: 'vs North Shore - Group Stage',
-      gifUrl: '/gifs/women-goal-5.gif'
+      videoUrl: '/gifs/women-goal-5.webm'
     }
   ],
   men: [
@@ -46,31 +46,31 @@ const sampleGoals: { [key in Category]: Goal[] } = {
       id: 'm1',
       title: 'James Anderson',
       subtitle: 'vs Thunder FC - Final',
-      gifUrl: '/gifs/men-goal-1.gif'
+      videoUrl: '/gifs/men-goal-1.webm'
     },
     {
       id: 'm2',
       title: 'Michael Brown',
       subtitle: 'vs Eagles United - Semi Final',
-      gifUrl: '/gifs/men-goal-2.gif'
+      videoUrl: '/gifs/men-goal-2.webm'
     },
     {
       id: 'm3',
       title: 'David Chen',
       subtitle: 'vs Storm City - Quarter Final',
-      gifUrl: '/gifs/men-goal-3.gif'
+      videoUrl: '/gifs/men-goal-3.webm'
     },
     {
       id: 'm4',
       title: 'Ryan O\'Connor',
       subtitle: 'vs Phoenix FC - Round 16',
-      gifUrl: '/gifs/men-goal-4.gif'
+      videoUrl: '/gifs/men-goal-4.webm'
     },
     {
       id: 'm5',
       title: 'Alex Martinez',
       subtitle: 'vs Coastal Warriors - Group Stage',
-      gifUrl: '/gifs/men-goal-5.gif'
+      videoUrl: '/gifs/men-goal-5.webm'
     }
   ]
 };
@@ -152,13 +152,19 @@ const VotingPage = ({ category }: VotingPageProps) => {
             className={`goal-card ${selectedGoal === goal.id ? 'selected' : ''}`}
             onClick={() => handleGoalSelect(goal.id)}
           >
-            <img 
-              src={goal.gifUrl} 
-              alt={`${goal.title} goal`}
-              className="goal-gif"
+            <video 
+              src={goal.videoUrl} 
+              className="goal-video"
+              autoPlay
+              loop
+              muted
+              playsInline
               onError={(e) => {
-                // Fallback to a placeholder if GIF doesn't load
-                e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkdJRiBQbGFjZWhvbGRlcjwvdGV4dD48L3N2Zz4=';
+                // Fallback to a placeholder if video doesn't load
+                const placeholder = document.createElement('div');
+                placeholder.className = 'video-placeholder';
+                placeholder.innerHTML = 'Video Placeholder';
+                e.currentTarget.parentNode?.replaceChild(placeholder, e.currentTarget);
               }}
             />
             <div className="goal-info">
