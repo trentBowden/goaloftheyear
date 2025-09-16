@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { useStore } from '../store/useStore';
 
 const MANAGEMENT_PASSCODE = '0880';
@@ -17,7 +18,7 @@ const ManagementPage = () => {
     if (passcode === MANAGEMENT_PASSCODE) {
       setIsAuthenticated(true);
     } else {
-      alert('Incorrect passcode. Please try again.');
+      toast.error('Incorrect passcode. Please try again.');
       setPasscode('');
     }
   };
@@ -30,10 +31,10 @@ const ManagementPage = () => {
     setIsResetting(true);
     try {
       await resetVotes(category);
-      alert(`All ${category}'s votes have been reset successfully.`);
+      toast.success(`All ${category}'s votes have been reset successfully.`);
     } catch (error) {
       console.error('Error resetting votes:', error);
-      alert('Error resetting votes. Please try again.');
+      toast.error('Error resetting votes. Please try again.');
     } finally {
       setIsResetting(false);
     }

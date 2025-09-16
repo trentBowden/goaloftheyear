@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import confetti from 'canvas-confetti';
 import { useStore } from '../store/useStore';
 import type { Goal, Category } from '../types';
 
@@ -109,10 +111,21 @@ const VotingPage = ({ category }: VotingPageProps) => {
     setIsSubmitting(true);
     try {
       await submitVote(category, selectedGoal);
-      alert(hasVoted ? 'Vote updated successfully!' : 'Vote submitted successfully!');
+      
+      // Show success toast
+      toast.success(hasVoted ? 'Vote updated successfully!' : 'Vote submitted successfully!');
+      
+      // Trigger confetti celebration
+      confetti({
+        particleCount: 400,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7']
+      });
+      
     } catch (error) {
       console.error('Error submitting vote:', error);
-      alert('Error submitting vote. Please try again.');
+      toast.error('Error submitting vote. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

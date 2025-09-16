@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import { useStore } from './store/useStore';
 import LandingPage from './components/LandingPage';
 import VotingPage from './components/VotingPage';
@@ -25,6 +26,33 @@ function App() {
           <Route path="/results/women" element={<ResultsPage category="women" />} />
           <Route path="/results/men" element={<ResultsPage category="men" />} />
         </Routes>
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: '#363636',
+              color: '#fff',
+              fontSize: '16px',
+              padding: '16px',
+              borderRadius: '8px',
+            },
+            success: {
+              duration: 3000,
+              iconTheme: {
+                primary: '#4ade80',
+                secondary: '#fff',
+              },
+            },
+            error: {
+              duration: 5000,
+              iconTheme: {
+                primary: '#ef4444',
+                secondary: '#fff',
+              },
+            },
+          }}
+        />
       </div>
     </Router>
   );
