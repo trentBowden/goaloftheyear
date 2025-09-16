@@ -24,22 +24,10 @@ const sampleGoals: { [key in Category]: Goal[] } = {
     },
     {
       id: 'w3',
-      title: 'Lisa Rodriguez',
-      subtitle: 'vs Valley FC - Quarter Final',
-      videoUrl: '/gifs/women-goal-3.webm'
+      title: 'Hannah Roffe',
+      subtitle: 'vs Flinders',
+      videoUrl: '/gifs/women/2025_hannah_v_flinders.webm'
     },
-    {
-      id: 'w4',
-      title: 'Kate Wilson',
-      subtitle: 'vs Riverside - Round 16',
-      videoUrl: '/gifs/women-goal-4.webm'
-    },
-    {
-      id: 'w5',
-      title: 'Amy Johnson',
-      subtitle: 'vs North Shore - Group Stage',
-      videoUrl: '/gifs/women-goal-5.webm'
-    }
   ],
   men: [
     {
