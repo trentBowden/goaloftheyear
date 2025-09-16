@@ -44,33 +44,33 @@ const sampleGoals: { [key in Category]: Goal[] } = {
   men: [
     {
       id: 'm1',
-      title: 'James Anderson',
-      subtitle: 'vs Thunder FC - Final',
-      videoUrl: '/gifs/men-goal-1.webm'
+      title: 'Jake Dahms',
+      subtitle: 'vs Mount Barker',
+      videoUrl: '/gifs/men/2025_jake_v_barker.webm'
     },
     {
       id: 'm2',
-      title: 'Michael Brown',
-      subtitle: 'vs Eagles United - Semi Final',
-      videoUrl: '/gifs/men-goal-2.webm'
+      title: 'Jonno Eske',
+      subtitle: 'vs Mclaren',
+      videoUrl: '/gifs/men/2025_jonno_v_mclaren.webm'
     },
     {
       id: 'm3',
-      title: 'David Chen',
-      subtitle: 'vs Storm City - Quarter Final',
-      videoUrl: '/gifs/men-goal-3.webm'
+      title: 'Karl Carrington',
+      subtitle: 'vs Mclaren',
+      videoUrl: '/gifs/men/2025_karl_v_mclaren.webm'
     },
     {
       id: 'm4',
-      title: 'Ryan O\'Connor',
-      subtitle: 'vs Phoenix FC - Round 16',
-      videoUrl: '/gifs/men-goal-4.webm'
+      title: 'Ethan Tinnion',
+      subtitle: 'vs St Pauls',
+      videoUrl: '/gifs/men/2025_ethan_v_st_pauls.webm'
     },
     {
       id: 'm5',
-      title: 'Alex Martinez',
-      subtitle: 'vs Coastal Warriors - Group Stage',
-      videoUrl: '/gifs/men-goal-5.webm'
+      title: 'Ash Dann',
+      subtitle: 'vs Flinders',
+      videoUrl: '/gifs/men/2025_ash_v_flinders.webm'
     }
   ]
 };
