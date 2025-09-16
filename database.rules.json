@@ -3,6 +3,7 @@
     "votes": {
       "women": {
         ".read": true,
+        ".write": true,
         "$userId": {
           ".write": true,
           ".validate": "newData.hasChildren(['userId', 'goalId', 'category', 'timestamp']) && newData.child('category').val() === 'women'"
@@ -10,6 +11,7 @@
       },
       "men": {
         ".read": true,
+        ".write": true,
         "$userId": {
           ".write": true,
           ".validate": "newData.hasChildren(['userId', 'goalId', 'category', 'timestamp']) && newData.child('category').val() === 'men'"

@@ -1,30 +1,13 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../store/useStore';
+import { sampleGoals } from '../data/goals';
 import type { Category } from '../types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 interface ResultsPageProps {
   category: Category;
 }
-
-// Sample goals data for results display
-const goalNames = {
-  women: {
-    w1: 'Sarah Mitchell',
-    w2: 'Emma Thompson',
-    w3: 'Lisa Rodriguez',
-    w4: 'Kate Wilson',
-    w5: 'Amy Johnson'
-  },
-  men: {
-    m1: 'James Anderson',
-    m2: 'Michael Brown',
-    m3: 'David Chen',
-    m4: 'Ryan O\'Connor',
-    m5: 'Alex Martinez'
-  }
-};
 
 const COLORS = ['#ff6b9d', '#4a90e2', '#28a745', '#ffc107', '#dc3545'];
 
@@ -50,12 +33,12 @@ const ResultsPage = ({ category }: ResultsPageProps) => {
   }, [category, subscribeToVoteCounts, unsubscribeFromVoteCounts]);
 
   // Prepare data for the chart
-  const chartData = Object.entries(goalNames[category]).map(([goalId, playerName]) => {
-    const voteCount = voteCounts.find(vc => vc.goalId === goalId)?.count || 0;
+  const chartData = sampleGoals[category].map((goal) => {
+    const voteCount = voteCounts.find(vc => vc.goalId === goal.id)?.count || 0;
     return {
-      name: playerName,
+      name: `${goal.title} - ${goal.subtitle}`,
       votes: voteCount,
-      goalId
+      goalId: goal.id
     };
   }).sort((a, b) => b.votes - a.votes); // Sort by votes descending
 
