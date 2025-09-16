@@ -30,6 +30,18 @@ const sampleGoals: { [key in Category]: Goal[] } = {
       subtitle: 'vs Flinders',
       videoUrl: '/gifs/women/2025_hannah_v_flinders.webm'
     },
+    {
+      id: 'w4',
+      title: 'Karina Sapio',
+      subtitle: 'vs Comets (Away)',
+      videoUrl: '/gifs/women/2025_karina_v_comets_away.webm'
+    },
+    {
+      id: 'w5',
+      title: 'Karina Sapio',
+      subtitle: 'vs Comets (Home)',
+      videoUrl: '/gifs/women/2025_karina_v_comets.webm'
+    },
   ],
   men: [
     {
